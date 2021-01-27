@@ -2,19 +2,7 @@
 
   <div class="row setting" media="screen">
     
-    <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none" >
-      <ul>
-        <li class="active"><%= link_to "アカウント", current_user %></li>
-        <li class=""><%= link_to "プロフィール", "/users/profile/#{@user.id}"  %></li>
-      </ul>
-    </div>
-    
-     <div class="col-lg-2 user-nav user-nav-mobile d-lg-none" >
-      <ul>
-        <li class="active"><%= link_to "アカウント", current_user %></li>
-        <li class=""><%= link_to "プロフィール", "/users/profile/#{@user.id}" %></li>
-      </ul>
-    </div>
+    <%= render 'layouts/user_nav' %>
   
     <div class="col-md-10 user-view">
       <div class="user-view-box">
@@ -32,7 +20,7 @@
         <div class="update-content">
           <div class="row">
             <label class="col-md-3" for="password">パスワード</label>
-            <div class="col-md-9">*<%= @user.password %></div>
+            <div class="col-md-9">*********</div>
           </div>
         </div>
         <div class="update-content">
@@ -42,6 +30,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 
 </div>
