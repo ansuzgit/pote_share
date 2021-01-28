@@ -13,7 +13,7 @@
             
             <%= current_user.name %>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="/assets/default_icon.jpg">
+              <span class="mx-3 p-1 host-icon nav-trigger"><%= gravatar_for current_user %></span>
               <b class="caret"></b>
             </a>
             

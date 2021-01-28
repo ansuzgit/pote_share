@@ -206,9 +206,9 @@ div.field, div.actions {
     display: block;
     height: calc(1.5em + .75rem + 12px);
     padding: .375rem .75rem;
-    font-size: 1rem;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 15px;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
@@ -273,12 +273,6 @@ ul {
     display: none!important;
 }
 
-.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
-    position: relative;
-    width: auto;
-    padding-right: 15px;
-    padding-left: 15px;
-}
 
 
 .user .user-nav li {
@@ -329,7 +323,7 @@ li {
     
   .setting {
     flex-direction: row;
-    height: 550px;
+    height: 700px;
   }
   
   .user-nav{
@@ -344,9 +338,21 @@ li {
     border-right: 3px solid #4a90e2;
     padding-right: 10px;
   }
+  
+  .col-md-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+  
+  .col-md-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
 /* 1024px以下の幅の場合に適応される */
     
   .setting {
@@ -364,6 +370,54 @@ li {
   .user .user-nav .active a {
     border-bottom: 3px solid #4a90e2;
     padding-bottom: 10px;
+  }
+  
+  .col-md-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+  
+  .col-md-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+/* 768px以下の幅の場合に適応される */
+    
+  .setting {
+    flex-direction: column;
+  }
+  
+  .user-nav{
+    height: 25%;  
+  }
+  
+  .user-view{
+    height: 75%;
+  }
+  
+  .user .user-nav .active a {
+    border-bottom: 3px solid #4a90e2;
+    padding-bottom: 10px;
+  }
+  
+  .col-md-3{
+    width: 100%;
+  }
+  
+  .mb {
+    width: 100%;
+  }
+  
+  .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
@@ -400,13 +454,38 @@ label {
     margin-right: 1rem!important;
 }
 
-.col-md-3 {
-    -ms-flex: 0 0 25%;
-    flex: 0 0 25%;
-    max-width: 25%;
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem!important;
 }
+
 
 a {
     color: #000;
 }
 
+textarea.form-control {
+    height: 120px;
+}
+
+
+.required-a::after {
+    content: "必須";
+    color: #fff;
+    background-color: #ff0000a8;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 0 5px;
+}
+
+
+.user .icon-box {
+    text-align: center;
+}
+
+.oth {
+   position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+}
