@@ -29,12 +29,9 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if !!@user.authenticate(params[:current_password])
-        
-        #@user.update(user_params)
-        flash[:success] = "Profile updated"
-        redirect_to root_path
-        
+    if  @user.update(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to root_path
     
     else
       render 'edit'
@@ -45,7 +42,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation,:current_password )
+                                   :password_confirmation, :current_password)
     end
     
 end
