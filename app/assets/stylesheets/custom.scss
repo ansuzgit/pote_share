@@ -475,8 +475,9 @@ textarea.form-control {
 }
 
 
-.user .icon-box {
+.icon-box {
     text-align: center;
+    width: 100%;
 }
 
 .oth {
@@ -516,7 +517,6 @@ div.field, div.actions {
 }
 
 
-
 .actions .my-4 {
     color: #fff;
 }
@@ -525,4 +525,8 @@ div.field, div.actions {
 
 .btn-2{
     color: #fff !important;  
+}
+
+.col-md-6 {
+    width: 100%;
 }
