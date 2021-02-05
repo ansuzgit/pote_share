@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the PoteShareAPP!"
       redirect_to @user
     else
-      render '/new'
+      render 'users/new'
     end
   end
   

@@ -4,7 +4,8 @@ class UserTest < ActiveSupport::TestCase
   
   def setup
     @user = User.new(name: "Example" , email: "user@example.com" ,
-                     password: "foobar", password_confirmation: "foobar" )
+                     password: "foobar", password_confirmation: "foobar" ,
+                     introduction: "hello" ,image: open("#{Rails.root}/db/fixtures/default_icon.jpg") )
                      
   end
 

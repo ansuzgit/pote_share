@@ -10,8 +10,9 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 },allow_nil: true
   mount_uploader :image, ImageUploader 
-  #validates :image, presence: true
-  #validates :introduction, presence: true
+  validates :image, presence: true, on: :profile_edit
+  validates :introduction, presence: true , on: :profile_edit
+  
   
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
