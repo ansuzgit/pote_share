@@ -19,7 +19,10 @@
               <b class="caret"></b>
             </a>
             
-            <ul class="dropdown-menu"> 
+            <ul class="dropdown-menu">
+              <li><%= link_to "ルーム登録", new_post_path %></li>
+              <li><%= link_to "予約済みルーム一覧", current_user %></li> 
+              <li><%= link_to "登録済みルーム一覧", current_user %></li>
               <li><%= link_to "設定", current_user %></li>
               <li class="divider"></li> 
               <li><%= link_to "ログアウト", logout_path, method: :delete %></li>

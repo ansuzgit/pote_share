@@ -1,17 +1,36 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  introduction: MyText
+orange:
+  name: "orange"
+  introduction: "I just ate an orange!"
   price: 1
-  adress: MyText
-  image: MyString
-  user: one
+  adress: "orange"
+  image: open("#{Rails.root}/db/fixtures/default_icon.jpg")
+  created_at: <%= 10.minutes.ago %>
+  user: michael
 
-two:
-  name: MyString
-  introduction: MyText
-  price: 1
-  adress: MyText
-  image: MyString
-  user: two
+tau_manifesto:
+  name: "tau_manifesto"
+  introduction: "Check out the @tauday site by @mhartl: https://tauday.com"
+  price: 2
+  adress: "tau_manifesto"
+  image: open("#{Rails.root}/db/fixtures/default_icon.jpg")
+  created_at: <%= 3.years.ago %>
+  user: michael
+
+cat_video:
+  name: "cat_video"
+  introduction: "Sad cats are sad: https://youtu.be/PKffm2uI4dk"
+  price: 3
+  adress: "cat_video"
+  image: open("#{Rails.root}/db/fixtures/default_icon.jpg")
+  created_at: <%= 2.hours.ago %>
+  user: michael
+
+most_recent:
+  name: "most_recent"
+  introduction: "Writing a short test"
+  price: 4
+  adress: "most_recent"
+  image: open("#{Rails.root}/db/fixtures/default_icon.jpg")
+  created_at: <%= Time.zone.now %>
+  user: michael
+  

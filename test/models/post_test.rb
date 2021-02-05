@@ -3,8 +3,8 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   
   def setup
-    @user = users(:michael) # このコードは慣習的に正しくない
-    @post = Post.new(  user_id: @user.id ,
+    @user = users(:michael)
+    @post = @user.posts.build(  user_id: @user.id ,
                        name: "Lorem ipsum" ,
                        introduction: "Hello" ,
                        price: 30000 ,
@@ -45,4 +45,9 @@ class PostTest < ActiveSupport::TestCase
     @post.image = " " 
     assert_not @post.valid?
   end
+  
+  test "order should be most recent first" do
+    assert_equal posts(:most_recent), Post.first
+  end
+  
 end
