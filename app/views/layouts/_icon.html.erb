@@ -1,5 +1,6 @@
-<% if @user.image? %>                                                              
-  <%= image_tag @user.image.url ,class: "host-icon" %>
+<% if current_user.image? %>
+  <img src='<%= current_user.image.to_s %>' class="host-icon" >
+  
 <% else %>
   <%= image_tag 'default_icon.jpg' ,class: "host-icon" %>
 <% end %>

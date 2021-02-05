@@ -10,6 +10,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def profile_edit
+    @user = User.find(params[:id])
+    if  @user.update(user_params)
+      flash[:success] = "ユーザー情報の編集に成功しました。"
+      redirect_to root_path
+    else
+      flash.now[:danger] = 'ユーザー情報の編集に失敗しました。'
+      render user_path
+    end
+  end
+  
   def new
     @user = User.new
   end
@@ -21,7 +32,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the PoteShareAPP!"
       redirect_to @user
     else
-      render 'new'
+      render '/new'
     end
   end
   
@@ -32,24 +43,25 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if  @user.update(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to 'user'
-    
+      flash[:success] = "ユーザー情報の編集に成功しました。"
+      redirect_to user_path
     else
-      render 'edit'
+      flash.now[:danger] = 'ユーザー情報の編集に失敗しました。'
+      render user_path
     end
   end
   
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :image)
+      params.required(:user).permit(:name, :email, :password,
+                                   :password_confirmation, 
+                                   :introduction, :image)
     end
     
     def logged_in_user
       unless logged_in?
-        flash[:danger] = "Please log in."
+        flash[:danger] = "ログインしてください。"
         redirect_to login_url
       end
     end  
