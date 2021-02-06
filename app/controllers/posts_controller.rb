@@ -1,9 +1,18 @@
 class PostsController < ApplicationController
   before_action :logged_in_user, only: [:new,:create]
   
-  def show
-    
+  def index
   end
+  
+  def my_index
+    @posts = current_user.posts
+  end
+  
+  def show
+    @post = current_user.posts.find(params[:id])
+  end
+  
+  
   
   def new
     @post = current_user.posts.build

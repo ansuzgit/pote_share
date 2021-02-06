@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  mount_uploader :image, ImageUploader
   default_scope -> { order(created_at: :desc)}
   validates :user_id, presence: true
   validates :name, presence: true
@@ -7,4 +8,5 @@ class Post < ApplicationRecord
   validates :image, presence: true  ,on: :update
   validates :price, presence: true
   validates :adress, presence: true
+ 
 end
