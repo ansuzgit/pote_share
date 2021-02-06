@@ -1,1 +1,71 @@
-<h1>hello</h1>
+<div class="container-fiuld user"> 
+
+  <div class="row setting" media="screen">
+    
+    <div class="col-lg-2 user-nav user-nav d-lg-none" >
+      <ul>
+        <li class="active"><a href="/posts/new">基本情報</a></li>
+      </ul>
+    </div>
+
+    <div class="col-lg-10 user-view">
+      <div class="user-view-box">
+    
+        <div class="update-content">
+          <div class="row">
+            <h5>ルーム登録情報</h5>
+          </div>
+        </div>
+    
+        <%= form_with(model: @post, local: true) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+                    
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :name , "ルーム名" , class: "col-md-3 required-a"%>
+              <%= f.text_field :name, :placeholder => "ルーム名を入力" , class: "form-control mb-4 col-md-9" %>
+            </div>
+          </div>
+                   
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :introduction , "ルーム紹介" , class: "col-md-3 required-a" %>
+              <%= f.text_area :introduction, :placeholder => "ルーム説明を入力", class: "form-control mb-4 col-md-9"  %>
+            </div>
+          </div>
+        
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :price , "料金" , class: "col-md-3 required-a" %>
+              <%= f.number_field :price, :placeholder => "1日あたりの料金を入力", class: "form-control mb-4 col-md-9"  %>
+            </div>
+          </div>
+          
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :adress , "住所" , class: "col-md-3 required-a" %>
+              <%= f.text_field :adress, :placeholder => "住所を入力" , class: "form-control mb-4 col-md-9"  %>
+            </div>
+          </div>
+          
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :image , "ルーム画像" , class: "col-md-3 required-a" %>
+              <%= f.file_field :image , class: "mb-4 col-md-9"  %>
+            </div>
+          </div>
+                    
+          <div class="update-content">
+            <div class="row">
+              <%= f.submit "登録", class: "col-md-2 btn btn-primary mx-3" %>
+            </div>
+          </div>
+      
+        <% end %>
+    
+      </div>
+    </div>
+
+  </div>
+
+</div>
