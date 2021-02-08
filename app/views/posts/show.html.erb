@@ -17,9 +17,8 @@
       <div class="room-show-nav">
         <h5 class="price-icon"><%= @post.price %> / 日</h5>
         <div class="room-show-date-select">
-            
-          <%= form_with(model: @post, local: true) do |f| %>
-            <%= render 'shared/error_messages', object: f.object %>
+          
+          <%= form_with(model: @reservation ,local: true) do |f| %>
             
             <%= f.label :start_date , "開始日" %>
             <%= f.date_field :start_date , class: "form-control mb-4 oth-10" %>

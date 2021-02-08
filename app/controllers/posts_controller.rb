@@ -12,8 +12,6 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
   end
   
-  
-  
   def new
     @post = current_user.posts.build
   end
@@ -27,6 +25,10 @@ class PostsController < ApplicationController
       render 'static_pages/home'
     end
   end
+  
+  def move
+    redirect_to("/reservations/new");
+  end
 
   private
   
@@ -38,6 +40,4 @@ class PostsController < ApplicationController
                                    :image)
     end
     
-
-  
 end
