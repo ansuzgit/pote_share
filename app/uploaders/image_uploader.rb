@@ -1,6 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  process resize_to_limit: [240, 140]
+  process resize_to_limit: [1026, 1026]
 
   storage :file
 
@@ -19,4 +19,13 @@ class ImageUploader < CarrierWave::Uploader::Base
     ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_icon.jpg"].compact.join('_'))
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
+  
+  version :thumb_show do
+    process :resize_to_fill => [470, 265]
+  end
+  
+  version :thumb_my_posts do
+    process :resize_to_fill => [240, 140]
+  end
+  
 end

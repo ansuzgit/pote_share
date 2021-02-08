@@ -1,11 +1,10 @@
 <div class="container room-show">
   <div class="row">
     <div class="col-md-8">
-      <!--<img onerror="this.onerror=null;this.src='/assets/room01.jpg';" alt="部屋画像" class="room-show-image" src="/assets/room01.jpg">
-      -->
+      <%= link_to (image_tag  "#{@post.image_url(:thumb_show)}" ,class: "room-show-image"), "/posts/show/#{@post.id}"   %>
       <div class="room-show-detile">
         <div class="room-show-detile-icon">
-          <a href="/"><img class="host-icon" src="/assets/default_icon.jpg"></a>
+          <%= link_to (image_tag  "#{@post.user.image.to_s}" ,class: "host-icon"), "/"   %>
         </div>
         <div class="room-show-profile">
           <p class="room-show-profile-name"><%= @post.name %></p>
@@ -19,17 +18,21 @@
         <h5 class="price-icon"><%= @post.price %> / 日</h5>
         <div class="room-show-date-select">
             
-          <form action="/reservations/new" accept-charset="UTF-8" method="get">
-            <label for="start_date">開始日</label>
-            <input type="date" name="start_date" id="start_date" value="" class="form-control mb-4">
-            <label for="end_date">終了日</label>
-            <input type="date" name="end_date" id="end_date" value="" class="form-control mb-4">
-            <label for="person_num">人数</label>
-            <input type="number" name="person_num" id="person_num" value="" class="form-control mb-4">
-            <input type="hidden" name="room_id" id="room_id" value="122">
-              <input type="submit" name="commit" value="予約する" class="btn btn-primary form-control" data-disable-with="予約する">
-          </form>
+          <%= form_with(model: @post, local: true) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+            
+            <%= f.label :start_date , "開始日" %>
+            <%= f.date_field :start_date , class: "form-control mb-4 oth-10" %>
+            
+            <%= f.label :end_date , "終了日" %>
+            <%= f.date_field :end_date , class: "form-control mb-4  oth-10" %>
+            
+            <%= f.label :person_num , "人数" %>
+            <%= f.number_field :person_num , class: "form-control mb-4  oth-10" %>
+            
+            <%= f.submit "予約する", class: "col-md-2 btn btn-primary mx-3 form-control oth-11" %>
           
+          <% end %>
         </div>
       </div>
     </div>
