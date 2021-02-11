@@ -18,7 +18,7 @@
             <h6 class="reservations-new-check-content">合計金額 : <%= (@reservation.end_date - @reservation.start_date).to_i * @reservation.person_num * @post.price %></h6>
             <p class="reservations-new-check-content">上記内容でよろしければ「予約を確定」を押してください</p>
             <%= f.submit "予約を確定", class: "col-md-2 btn btn-primary mx-3 form-control oth-11" %>
-          　<a class="btn btn-secondary form-control" href=<%= "/posts/show/#{@post.id}" %> >ルーム詳細に戻る</a>
+          　<a class="btn btn-secondary oth-9" href=<%= "/posts/show/#{@post.id}" %> >ルーム詳細に戻る</a>
           <% end %>
         </div>
       </div>

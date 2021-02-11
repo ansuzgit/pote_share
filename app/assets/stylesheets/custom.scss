@@ -46,7 +46,7 @@ body {
 }
 
 .btn-secondary {
-    color: #fff;
+    color: #fff !important; 
     background-color: #6c757d !important; 
     border-color: #6c757d;
 }
@@ -656,7 +656,7 @@ td {
     word-break: break-all;
 }
 
-.room-show-nav, .reservations-new-nav {
+.room-show-nav {
     padding: 20px;
     border: 1px solid #eaedef;
     height: 405px;
@@ -671,3 +671,27 @@ room-show-date-select label, .reservations-new-date-select label {
     font-size: 14px;
    
 }
+
+/* reservation/new */
+
+.offset-3 {
+    margin-left: 25%;
+    min-width: 500px;
+}
+
+.room-show-check-content, .reservations-new-check-content {
+    border-bottom: 1px solid #eaedef;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+h6{
+    font-size: 18px;
+}
+
+.reservations-new-nav {
+    padding: 20px;
+    border: 1px solid #eaedef;
+    height: 680px;
+}
+

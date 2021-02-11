@@ -26,9 +26,6 @@ class PostsController < ApplicationController
     end
   end
   
-  def move
-    redirect_to("/reservations/new");
-  end
 
   private
   
