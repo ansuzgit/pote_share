@@ -11,7 +11,8 @@ gem 'turbolinks', '5.2.0'
 gem 'jbuilder', '2.9.1'
 gem 'bootsnap', '1.4.4', require: false
 gem 'carrierwave'
-gem 'mini_magick'  
+gem 'mini_magick'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

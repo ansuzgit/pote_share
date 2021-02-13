@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   get '/posts/show/:id' , to: 'posts#show'
   post '/posts/show/:post_id' , to: 'reservations#create'
   get '/my_reservations' , to: 'reservations#index'
+  
   resources :users
   resources :posts  , shallow: true do
     resources :reservations
   end
+  
+  get '/static_pages/home' , to: 'posts#index'
 end

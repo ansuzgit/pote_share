@@ -1,9 +1,23 @@
 <header class="header">
   <div class="header-inner">
     <div class="header-left-nav">
+      
       <%= link_to root_path do %>
         <%= image_tag "logo.png" %>
       <% end %>
+      
+      <%= form_with url: posts_path , method: :get, local: true do |f| %>
+        <div class="header-sharch d-lg-inline-block d-none">
+          <%= f.text_field :search ,class: "form-control" , placeholder: "エリア"  %>
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="header-sharch d-lg-inline-block d-none">
+          <%= f.text_field :search ,class: "form-control" ,placeholder: "キーワード" %>
+          <i class="fas fa-search"></i>
+        </div>
+        <%= f.submit 'Search', :name => nil ,class: "d-none" %>
+      <% end %>
+      
     </div>
     <div class="header-right-nav">
       <div class="nav-item">
