@@ -758,7 +758,7 @@ td {
     padding: 15px 0;
 }
 
-room-show-date-select label, .reservations-new-date-select label {
+.room-show-date-select label, .reservations-new-date-select label {
     letter-spacing: 2px;
     font-size: 14px;
    
@@ -903,3 +903,12 @@ button, input {
     font-family: "Font Awesome 5 Free";
 }
 
+/* oth */
+
+.oth-214{ /* posts/new エラー時ラベル書式崩れ修正*/
+    min-width: 180px;
+}
+
+.alert-notice {
+    background-color: lightBlue;
+  }

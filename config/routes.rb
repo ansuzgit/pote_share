@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/posts/my_index' , to: 'posts#my_index'
   get '/posts/show/:id' , to: 'posts#show'
+  get '/posts/show/:post_id' , to: 'posts#show'
   post '/posts/show/:post_id' , to: 'reservations#create'
   get '/my_reservations' , to: 'reservations#index'
   

@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: [:new,:create]
+  before_action :logged_in_user, only: [:new,:create,:my_index,:show]
   
   def index
-    @posts = Post.search(params[:search])
+    @posts = Post.search_area(params[:area]).search_keyword(params[:keyword])
   end
   
   def my_index
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
   
   def new
@@ -20,10 +20,11 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "post created!"
-      redirect_to root_url
+      flash[:success] = "ルーム登録に成功しました"
+      redirect_to post_path(@post) 
     else
-      render 'static_pages/home'
+      flash.now[:danger] = 'ルーム登録に失敗しました。'
+      render new_post_path
     end
   end
 
@@ -35,7 +36,10 @@ class PostsController < ApplicationController
                                    :price,
                                    :adress,
                                    :image,
+                                   :id
                                    )
+                                   .merge(user_id: current_user.id)
+                                   
     end
     
 end

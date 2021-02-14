@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   end
   
   def show
-    @post = Post.find_by(post_id: params[:format])
+    @post = Post.find_by(id: params[:format])
     @reservation = Reservation.find(params[:id])
   end
   
@@ -18,10 +18,10 @@ class ReservationsController < ApplicationController
     @post = Post.find(params[:post_id])
     @reservation = @post.reservations.build(reservation_params)
     if @reservation.save
-      flash[:success] = "reservation created!"
+      flash[:success] = "予約が完了しました。"
       redirect_to reservation_path(@reservation,params[:post_id])
     else
-      render new_post_reservation_path
+      redirect_back fallback_location: root_path , notice: '#予約の申請に失敗しました。再度お手続きをお願いします。'
     end
   end
 

@@ -14,10 +14,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if  @user.update(user_params)
       flash[:success] = "ユーザー情報の編集に成功しました。"
-      redirect_to root_path
+      redirect_to '/users/profile/:id'
     else
       flash.now[:danger] = 'ユーザー情報の編集に失敗しました。'
-      render user_path
+      render '/users/profile/:id'
     end
   end
   
@@ -58,9 +58,7 @@ class UsersController < ApplicationController
                                    :password_confirmation, 
                                    :introduction, :image)
     end
-    
-      
-    
+  
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)

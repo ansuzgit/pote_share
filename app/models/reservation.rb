@@ -7,7 +7,7 @@ class Reservation < ApplicationRecord
   validates :person_num, presence: true
   validate :date_before_start
   validate :date_before_finish
-  validates_acceptance_of :confirming
+  validates_acceptance_of :confirming 
   after_validation :check_confirming
 
   def date_before_start

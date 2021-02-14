@@ -17,40 +17,40 @@
           </div>
         </div>
     
-        <%= form_with(model: @reservation, local: true) do |f| %>
+        <%= form_with(model: @post, local: true) do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
                     
           <div class="update-content">
             <div class="row">
-              <%= f.label :name , "ルーム名" , class: "col-md-3 required-a"%>
+              <%= f.label :name , "ルーム名" , class: "col-md-3 required-a oth-214"%>
               <%= f.text_field :name, :placeholder => "ルーム名を入力" , class: "form-control mb-4 col-md-9" %>
             </div>
           </div>
                    
           <div class="update-content">
             <div class="row">
-              <%= f.label :introduction , "ルーム紹介" , class: "col-md-3 required-a" %>
+              <%= f.label :introduction , "ルーム紹介" , class: "col-md-3 required-a oth-214" %>
               <%= f.text_area :introduction, :placeholder => "ルーム説明を入力", class: "form-control mb-4 col-md-9"  %>
             </div>
           </div>
         
           <div class="update-content">
             <div class="row">
-              <%= f.label :price , "料金" , class: "col-md-3 required-a" %>
+              <%= f.label :price , "料金" , class: "col-md-3 required-a oth-214" %>
               <%= f.number_field :price, :placeholder => "1日あたりの料金を入力", class: "form-control mb-4 col-md-9"  %>
             </div>
           </div>
           
           <div class="update-content">
             <div class="row">
-              <%= f.label :adress , "住所" , class: "col-md-3 required-a" %>
+              <%= f.label :adress , "住所" , class: "col-md-3 required-a oth-214" %>
               <%= f.text_field :adress, :placeholder => "住所を入力" , class: "form-control mb-4 col-md-9"  %>
             </div>
           </div>
           
           <div class="update-content">
             <div class="row">
-              <%= f.label :image , "ルーム画像" , class: "col-md-3 required-a" %>
+              <%= f.label :image , "ルーム画像" , class: "col-md-3 required-a 0th-214" %>
               <%= f.file_field :image , class: "mb-4 col-md-9"  %>
             </div>
           </div>

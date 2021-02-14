@@ -10,9 +10,14 @@ class Post < ApplicationRecord
   validates :price, presence: true
   validates :adress, presence: true
  
-  def self.search(search)
+  def self.search_area(search)
     return Post.all unless search
     Post.where(['adress LIKE ?', "%#{search}%"])
+  end
+  
+  def self.search_keyword(search)
+    return Post.all unless search
+    Post.where(['introduction LIKE ?', "%#{search}%"])
   end 
  
 end

@@ -6,7 +6,7 @@
         <h5 class="price-icon"><%= @post.price %> / 日</h5>
         <div class="reservations-new-date-select">
           <%= form_with(model: @reservation, local: true) do |f| %>
-             
+            
             <%= f.label :start_date , "開始日" %>
             <%= f.date_field :start_date , :readonly => true, class: "form-control mb-4 oth-10" %>
             
