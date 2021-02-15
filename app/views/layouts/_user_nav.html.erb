@@ -1,0 +1,6 @@
+<div class="col-lg-2 user-nav user-nav d-lg-none" >
+  <ul>
+    <li class= <%= "active" unless request.url.include?("profile") %> ><%= link_to "アカウント", current_user %></li>
+    <li class= <%= "active" if request.url.include?("profile") %> ><%= link_to "プロフィール", "/users/profile/#{@user.id}"  %></li>
+  </ul>
+</div>

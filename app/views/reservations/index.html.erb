@@ -1,0 +1,29 @@
+<div class="container-fiuld reservations">
+  <h4 class="pb-4">予約済みルーム一覧</h4>
+  <table>
+    <thead>
+      <tr align="center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>合計料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>予約確定日時</th>
+      </tr>
+    </thead>
+    <% @reservations.each do |my_reservation| %>
+      <tbody>
+        <tr>
+          <td><%= link_to (image_tag  "#{my_reservation.post.image_url(:thumb_my_posts)}" ,class: "reservations-image"), "/posts/show/#{my_reservation.post_id}"   %></td>
+          <td class="posts-name"><a href=<%= "/posts/#{ my_reservation.post_id }" %> ><%= my_reservation.post.name %></a></td>
+          <td class="posts-content"><%= my_reservation.post.introduction %></td>
+          <td class="price-icon"><%= ( my_reservation.end_date - my_reservation.start_date).to_i * my_reservation.person_num * my_reservation.post.price %></td>
+          <td><%= my_reservation.start_date %></td>
+          <td><%= my_reservation.end_date %></td>
+          <td><%= my_reservation.created_at %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

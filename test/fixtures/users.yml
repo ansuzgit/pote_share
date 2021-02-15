@@ -1,0 +1,7 @@
+michael:
+  id: 5
+  name: Michael Example
+  email: michael@example.com
+  password_digest: <%= BCrypt::Password.create('password') %>
+  introduction: hello
+  image: open("#{Rails.root}/db/fixtures/default_icon.jpg")

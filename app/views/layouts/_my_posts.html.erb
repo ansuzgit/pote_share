@@ -1,0 +1,11 @@
+<% @posts.each do |mine| %>
+  <tbody>
+    <tr>
+      <td><%= link_to (image_tag  "#{mine.image_url(:thumb_my_posts)}" ,class: "room-posts-image"), "/posts/show/#{mine.id}"   %></td>
+      <td class="posts-name"><%= link_to mine.name , "/posts/show/#{mine.id}"  %></a></td>
+      <td class="posts-content"><%= mine.introduction %></td>
+      <td class="price-icon"><%= mine.price %></td>
+      <td><%= mine.created_at %></td>
+    </tr>
+  </tbody>
+<% end %>
