@@ -18,5 +18,4 @@ Rails.application.routes.draw do
     resources :reservations
   end
   
-  get '/static_pages/home' , to: 'posts#index'
 end
